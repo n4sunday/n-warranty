@@ -1,3 +1,6 @@
+import { compose } from 'redux'
+import withAuthenticated from '../hocs/withAuthenticated'
+
 const App = () => {
     return (
         <div>
@@ -6,4 +9,6 @@ const App = () => {
     )
 }
 
-export default App
+export default compose(
+    withAuthenticated
+)(App)
