@@ -12,6 +12,9 @@ var config = {
 export default !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 // firebase.initializeApp(config);
 
-export const database = firebase.database().ref('/stock/test')
+export const database = firebase.database().ref('/warranty')
 export const auth = firebase.auth()
 export const googleProvider = new firebase.auth.GoogleAuthProvider()
+
+
+export const serviceAdd = firebase.database().ref('/warranty')

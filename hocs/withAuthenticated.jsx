@@ -22,7 +22,7 @@ export default WrapComponent => {
                 } else {
                     Router.push('/login')
                 }
-            });
+            })
         }
 
         const Load = () => (

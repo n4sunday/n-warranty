@@ -8,16 +8,19 @@ const Login = () => {
     //State
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [load, setLoad] = useState(false)
 
+    //Function
     const nextLogin = () => {
+        setLoad(true)
         auth.signInWithEmailAndPassword(email, password)
             .then(res => {
-                if (res.user) {
-                    Router.push('/')
-                }
+                if (res.user) Router.push('/')
+                setLoad(false)
+
             })
             .catch(error => {
-                setMes({ ...message, status: true, text: 'Incorrect email and password' })
+                setLoad(false)
             })
     }
 
@@ -40,13 +43,13 @@ const Login = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
-                <Button type="primary" htmlType="submit" className="w-100" onClick={nextLogin}>
+                <button className="bt-login w-100" onClick={nextLogin} loading={load}>
                     Log In
-                </Button>
+                </button>
             </section>
             <style jsx>{`
                 .screen {
-                    background-color: #d3f2f5;
+                    background-color: #202125;
                     height: 100vh;
                     width: 100%;
                     display: flex;
@@ -61,6 +64,19 @@ const Login = () => {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
+                }
+                .bt-login {
+                    background-color: #01b075;
+                    border: none;
+                    color: #fff;
+                    font-size: 18px;
+                    height: 35px;
+                }
+                .bt-login:hover {
+                    background-color: #01a178;
+                }
+                .bt-login:active {
+                    background-color: #01a188;
                 }
                 @media (max-width: 426px) {
                     .box {

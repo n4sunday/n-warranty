@@ -1,9 +1,32 @@
+body {
+  font-family: "Prompt", sans-serif;
+}
+button {
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+}
+
 .w-100 {
   width: 100%;
 }
 
+tr:hover {
+  td {
+    background-color: #202125 !important;
+  }
+}
+td {
+  color: #fff !important;
+}
+
 $sizes: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 22, 24, 25, 26, 28, 30, 32, 35, 38, 40, 42, 45, 46, 48,
   50, 55, 60, 65, 70, 75, 80, 85, 90, 95;
+
+.align-self-end {
+  align-self: flex-end;
+}
 
 @each $size in $sizes {
   //Font
